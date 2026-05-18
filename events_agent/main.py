@@ -40,8 +40,8 @@ def main():
         print(orch.staffing.staff_upcoming_events())
         return
 
-    if command == "vendors":
-        print(orch.vendors.book_vendors_for_upcoming_events())
+    if command == "weather":
+        print(orch.weather.check_upcoming_weather())
         return
 
     if command == "marketing":
@@ -63,18 +63,11 @@ def main():
             id="weekly_planning",
         )
 
-        # Tuesday 8 AM — Vendor check
+        # Wednesday 8 AM — Weather check + marketing
         scheduler.add_job(
-            orch.vendor_check,
-            CronTrigger(day_of_week="tue", hour=8, minute=0),
-            id="vendor_check",
-        )
-
-        # Wednesday 8 AM — Marketing
-        scheduler.add_job(
-            orch.marketing_run,
+            orch.midweek_run,
             CronTrigger(day_of_week="wed", hour=8, minute=0),
-            id="marketing_run",
+            id="midweek_run",
         )
 
         # Thursday 8 AM — Email sweep
@@ -120,7 +113,7 @@ def main():
 
     else:
         print(f"Unknown command: {command}")
-        print("Usage: python main.py [setup|run|email|permits|staffing|vendors|marketing|finance]")
+        print("Usage: python main.py [setup|run|email|permits|staffing|weather|marketing|finance]")
         sys.exit(1)
 
 

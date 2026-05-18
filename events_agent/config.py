@@ -60,16 +60,30 @@ PERMIT_LEAD_DAYS = {
     "venue_reservation": 30,
     "special_event": 21,
     "alcohol_one_day_license": 30,    # MA ABCC one-day license
-    "amusement_device": 14,           # bounce house
     "food_service": 14,
+}
+
+# ── Weather ──────────────────────────────────────────────────────────────────
+# Free API key from openweathermap.org
+OPENWEATHER_API_KEY = os.environ.get("OPENWEATHER_API_KEY", "")
+# Needham, MA coordinates
+VENUE_LAT = 42.2815
+VENUE_LON = -71.2326
+
+# Thresholds that trigger a cancellation recommendation
+WEATHER_CANCEL_RULES = {
+    "thunderstorm": True,           # any thunderstorm → always recommend cancel
+    "snow_inches_per_hour": 0.5,    # heavy snow
+    "wind_mph": 35,                 # sustained wind
+    "rain_probability_pct": 80,     # very high rain chance
+    "temp_low_f": 20,               # dangerous cold
+    "temp_high_f": 100,             # dangerous heat
 }
 
 # ── Budget defaults (per event) ──────────────────────────────────────────────
 DEFAULT_BUDGET = {
     "venue_rental": 500,
     "bartender": 300,
-    "bounce_house_rental": 350,
-    "bounce_house_operator": 200,
     "insurance_rider": 150,
     "marketing": 100,
     "supplies_misc": 200,

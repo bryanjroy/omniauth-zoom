@@ -56,16 +56,6 @@ PERMIT_CONTACTS = {
         ),
         "state_url": "https://www.mass.gov/how-to/apply-for-a-one-day-liquor-license",
     },
-    "amusement_device": {
-        "office": "Needham Building Department",
-        "phone": "(781) 455-7550",
-        "email": "building@needhamma.gov",
-        "notes": (
-            "Bounce houses / inflatables are amusement devices under MA 520 CMR 6.00. "
-            "Operator must carry $1M liability. Town may require permit + inspection. "
-            "Vendor should provide current NAARSO or ASTM F24 safety certification."
-        ),
-    },
     "insurance": {
         "notes": (
             "General liability minimum $1,000,000 per occurrence, $2,000,000 aggregate. "
@@ -168,8 +158,7 @@ class PermitAgent(BaseAgent):
         "1. Venue Reservation (Needham Recreation Dept) — 30+ days out\n"
         "2. Special Event Permit (Town Manager) — 30+ days out\n"
         "3. MA ABCC One-Day Alcohol License — 30 days out, filed through town licensing authority\n"
-        "4. Amusement Device Permit for bounce house — 14+ days out\n"
-        "5. Certificate of Insurance ($1M GL, town as additional insured) — 21 days out\n\n"
+        "4. Certificate of Insurance ($1M GL, town as additional insured) — 21 days out\n\n"
         "Steps:\n"
         "- Check upcoming events and their permit status.\n"
         "- For any missing permits that are past their lead-time threshold, draft and send "
